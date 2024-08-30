@@ -1,0 +1,29 @@
+from random import *words = ["apple", "banana", "orange"]word = choice(words)
+print("answer : " + word)
+letters = ""
+
+while True:         
+    succeed = True     print()
+    for w in word: 
+        if w in letters: 
+            print(w, end=" ")        
+            else: 
+            print("_", end=" ")
+            succeed = False 
+    print()
+
+if succeed: 
+        print("Success")
+        break
+
+
+letter = input("Input letter > ") 
+    if letter not in letters: 
+        letters += letter 
+
+   if letter in word: 
+        print("Correct")
+    else: 
+        print("Wrong")
+
+이것이 행맨을 만드는 방법이다.  행맨을 만드는 방법을 잘 몰라서 네이버에 찾아 복사함. 그리고 어케 하는 지 스스로 분석하기 . 해석하면서 왜 이렇게 되는 지 확인하기 .

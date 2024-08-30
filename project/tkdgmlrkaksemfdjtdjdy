@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>일기를쓰는데이렇게까지해야하나</title>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-family: 'Arial';
+        }

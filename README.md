@@ -1,6 +1,3 @@
-<p align="center">자진입대를 환영합니다.</p>
-
-
 <br>
 <p align="center">
   <picture>

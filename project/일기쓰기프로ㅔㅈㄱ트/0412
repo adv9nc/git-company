@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>일기를쓰는데이렇게까지해야하나</title>
+    <style>
+        body {
+            background-color: rgba(240, 180, 178, 0.8);
+            font-family: 'Arial';
+        }
+        .header {
+            width: 100%;
+            height: 70px;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 100px;
+            color: #F48FB1;
+        }
+        .main {
+            width: 100%;
+            height: 500px;
+            background-color: white;
+            border-radius: 15px;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .footer {
+            width: 100%;
+            height: 500px;
+            background-color: white;
+            border-radius: 15px;
+            text-align: left;
+            line-height: 100px;
+            color: #277582;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>아직갈길이멀다</h1>
+    </div>
+    <div class="main">
+        <h2>홈페이지바탕화면.</h2>
+        <p>곧업그레이드될예정</p>
+    </div>
+<body>
+    <div class="footer">
+        
