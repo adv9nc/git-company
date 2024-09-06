@@ -83,3 +83,6 @@ def vocabulary_quiz():
 
 if __name__ == "__main__":
     vocabulary_quiz()
+
+
+#잘 모르는 부분은 인터넷에 찾아가보며 완성함.

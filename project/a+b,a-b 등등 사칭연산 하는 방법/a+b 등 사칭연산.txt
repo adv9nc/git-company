@@ -1,0 +1,9 @@
+백준 문제 풀이 방법
+1.a,b=map(int,input().split())
+print(a+b)
+2. a,b=map(int,input().split())
+print(a-b)
+3. a,b=map(int,input().split())
+print(a*b)
+4. a,b=map(int,input().split())
+print(a/b)

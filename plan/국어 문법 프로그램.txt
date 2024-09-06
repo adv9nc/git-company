@@ -1,0 +1,140 @@
+이름:초등 과학 학습 보조 프로그램
+참가자:양희성
+
+개발 방식:Android 스튜디오, Flutter
+
+
+= 기록 =
+1주차
+- 기획
+ 파이썬을 이용한 프로그램 코드 제작 및 학습
+- 실제로 한 것
+(1. 코드제작)
+import json
+
+# 과학 개념 및 연습 문제 예시
+science_data = {
+    "과학 개념": {
+        "물질의 상태": "물질은 고체, 액체, 기체의 세 가지 상태로 존재할 수 있습니다.",
+        "식물의 구조": "식물은 뿌리, 줄기, 잎으로 구성되어 있으며, 각 부분은 생명 활동에 중요한 역할을 합니다.",
+        "태양계": "태양계를 구성하는 행성들은 태양을 중심으로 공전하며, 주요 행성으로는 수성, 금성, 지구, 화성, 목성, 토성, 천왕성, 해왕성이 있습니다.",
+        "지구의 자전": "지구는 하루에 한 번 자전하며, 자전으로 인해 낮과 밤이 발생합니다.",
+        "기후 변화": "기후 변화는 지구의 기온이 장기간에 걸쳐 변하는 현상입니다."
+    },
+    "연습 문제": [
+        {
+            "question": "다음 중 물질의 상태를 구분한 것을 고르세요.\n1. 책은 고체이다.\n2. 물은 기체이다.\n3. 공기는 고체이다.",
+            "answer": 1
+        },
+        {
+            "question": "식물의 구조를 올바르게 나열한 것을 고르세요.\n1. 뿌리, 꽃, 줄기\n2. 뿌리, 줄기, 잎\n3. 뿌리, 열매, 줄기",
+            "answer": 2
+        },
+        {
+            "question": "태양계의 행성 중 지구에 해당하는 것은?\n1. 금성\n2. 화성\n3. 지구",
+            "answer": 3
+        },
+        {
+            "question": "지구의 자전에 대한 설명으로 맞는 것은?\n1. 지구는 하루에 한 번 자전한다.\n2. 자전으로 인해 계절이 변화한다.\n3. 자전은 365일마다 한 번 일어난다.",
+            "answer": 1
+        },
+        {
+            "question": "기후 변화의 원인으로 맞는 것은?\n1. 지구의 자전\n2. 식물의 생장\n3. 온실가스의 증가",
+            "answer": 3
+        }
+    ]
+}
+
+# 과학 데이터 저장
+def save_science_data(filename='science_data.json'):
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(science_data, f, ensure_ascii=False, indent=4)
+        print("과학 데이터가 성공적으로 저장되었습니다.")
+    except IOError as e:
+        print(f"파일 저장 중 오류가 발생했습니다: {e}")
+
+# 과학 데이터 불러오기
+def load_science_data(filename='science_data.json'):
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except IOError as e:
+        print(f"파일 읽기 중 오류가 발생했습니다: {e}")
+        return None
+
+# 과학 개념 학습 함수
+def study_science_concepts(science_concepts):
+    print("과학 개념 학습:")
+    for concept, explanation in science_concepts.items():
+        print(f"{concept}: {explanation}")
+
+# 연습 문제 풀이 함수
+def solve_science_exercises(exercises):
+    score = 0
+    total_questions = len(exercises)
+
+    for idx, exercise in enumerate(exercises, 1):
+        print(f"\n문제 {idx}:")
+        print(exercise["question"])
+        answer = input("정답을 입력하세요: ").strip()
+
+        correct_answer = exercise["answer"]
+        if isinstance(correct_answer, int):
+            try:
+                if int(answer) == correct_answer:
+                    print("정답입니다!")
+                    score += 1
+                else:
+                    print(f"틀렸습니다. 정답은 {correct_answer}입니다.")
+            except ValueError:
+                print("숫자를 입력해야 합니다.")
+        else:
+            if answer == correct_answer:
+                print("정답입니다!")
+                score += 1
+            else:
+                print(f"틀렸습니다. 정답은 '{correct_answer}'입니다.")
+   
+    print(f"\n모든 문제를 풀었습니다. 총 점수는 {score}/{total_questions}점입니다.")
+
+def main():
+    save_science_data()  # Save data initially (or when updated)
+    data = load_science_data()
+    if data:
+        study_science_concepts(data["과학 개념"])
+        
+        while True:
+            solve_science_exercises(data["연습 문제"])
+            
+            user_input = input("\n다시 학습 하시겠습니까? (예/아니요): ").strip().lower()
+            if user_input == '아니요':
+                print("프로그램을 종료하겠습니다.")
+                break
+            elif user_input != '예':
+                print("잘못된 입력입니다. '예' 또는 '아니요'로 답변해 주세요.")
+                continue
+
+if __name__ == "__main__":
+    main()
+
+(교육계열에 관심을 가진 고등학교 1학년 학생으로서, 학습 프로그램을 제작하는 과정에서 큰 보람을 느꼈습니다. 이 과정에서 사용자 인터페이스 설계와 반복 학습, 즉각적인 피드백의 중요성을 깊이 이해하게 되었으며, 학습 효과를 극대화하기 위한 다양한 방안을 고민했습니다. 특히 사용자 입력 처리와 반복 학습 기능 구현에서 어려움을 겪었으나, 문제 해결을 위해 예외 처리 로직을 추가하고 다양한 접근 방식을 시도했습니다. 향후에는 프로그래밍의 기본 원리와 문제 해결 기술을 더욱 심화하고, 교육적 소프트웨어 개발에 필요한 이론적 지식을 추가로 학습할 계획입니다. 이러한 경험은 향후 교육 분야에서 기술을 효과적으로 활용하는 데 중요한 기초가 될 것으로 기대됩니다.)
+
+(2. 코드 학습)
+: 이 코드를 제작할때 JSON 파일에 문법 규칙과 연습 문제를 저장하고 불러오는 기능을 사용하고, study_grammar 함수는 문법 규칙을 출력하며, solve_exercises 함수는 사용자에게 문제를 제시하고 정답을 평가한다는 내용을 학습했습니다. 코드에는 파일 입출력, 조건문, 반복문, 예외 처리, 그리고 문자열 조작과 같은 다양한 Python 문법을 사용했습니다.
+
+2주차
+- 기획 안드로이드 스튜디오와 플래터를 활용해 앱을 제작하기위한 방법 학습 및 1차 제작
+- 실제로 한 것
+
+
+3주차
+- 기획
+- 실제로 한 것
+
+
+
+= 리뷰 =
+- 개발 중 난관
+- 아쉬웠던 점
+- 소감
